@@ -1,23 +1,24 @@
 #include <stdio.h>
-int main(){
-    int i , j , a[3][3],sum=0;
-    for(i=0;i<3;i++){
-        for(j=0;j<3;j++){
-            scanf("%d",&a[i][j]);
-        }
+
+int main() {
+    int m, n, i, j;
+    printf("Enter rows and columns: ");
+    scanf("%d %d", &m, &n);
+    
+    int mat[m][n];
+    printf("Enter matrix elements:\n");
+    for(i = 0; i < m; i++)
+        for(j = 0; j < n; j++)
+            scanf("%d", &mat[i][j]);
+    
+    int mainSum = 0, secSum = 0;
+    int min = (m < n) ? m : n;
+
+    for(i = 0; i < min; i++) {
+        mainSum += mat[i][i];
+        secSum += mat[i][n - 1 - i];
     }
-    for(i=0;i<3;i++){
-        for(j=0;j<3;j++){
-            if(i==j){
-                sum = sum + a[i][j];
-            }
-            if((i+j)==2){
-                if(i!=j){
-                    sum = sum + a[i][j];
-                }
-            }
-        }
-    }
-    printf("Sum of Transpose = %d",sum);
+    
+    printf("Sum of both diagonals: %d\n", mainSum + secSum);
     return 0;
 }

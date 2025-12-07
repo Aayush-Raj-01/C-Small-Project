@@ -1,22 +1,20 @@
 #include <stdio.h>
-int main(){
-    int n ,s,i;
-    int a[n] ;
-    printf("Enter the Numubers of element you wanna put in = ");
-    scanf("%d",&n);
-    printf("Enter the Number");
-    for(i=0;i<n;i++){
-        scanf("%d",&a[i]);
-    }
-    printf("Enter the element to be Searched = ");
-    scanf("%d",&s);
-    for(i=0;i<n;i++){
-        if(a[i]==s){
-            break;
-        }
-    }
 
-    printf("The element is placed on = %d",i+1);
+int main() {
+    int m, n, i, j;
+    printf("Enter rows and columns: ");
+    scanf("%d %d", &m, &n);
+    
+    int mat[m][n];
+    printf("Enter matrix elements:\n");
+    for(i = 0; i < m; i++)
+        for(j = 0; j < n; j++)
+            scanf("%d", &mat[i][j]);
+    
+    int sum = 0;
+    for(i = 0; i < m && i < n; i++)
+        sum += mat[i][i];
+    
+    printf("Sum of diagonal elements: %d\n", sum);
     return 0;
-
 }
