@@ -11,7 +11,7 @@ int compareFiles(char *file1, char *file2) {
     int ch1, ch2;
     while ((ch1 = fgetc(f1)) != EOF && (ch2 = fgetc(f2)) != EOF) {
         if (ch1 != ch2) {
-            fclose(f1);
+            fclose(f1)
             fclose(f2);
             return 0;
         }
